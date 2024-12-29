@@ -41,7 +41,7 @@ model = Sequential([
     Dense(1)
 ])
 
-model.compile(optimizer='adam',loss='mae',metrics=['mae'])
+model.compile(optimizer='adam',loss='mse',metrics=['mse'])
 model.summary()
 
 from tensorflow.keras.callbacks import EarlyStopping
