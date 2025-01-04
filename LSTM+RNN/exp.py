@@ -25,7 +25,7 @@ print(tokenizer.word_index)
 
 input_sequences = []
 for line in text.split('\n'):
-    token_list = tokenizer.texts_to_sequence([line])[0]
+    token_list = tokenizer.texts_to_sequences([line])[0]
     for i in range(1,len(token_list)):
         n_gram_sequence = token_list[:i+1]
         input_sequences.append(n_gram_sequence)
@@ -42,7 +42,7 @@ y= tf.keras.utils.to_categorical(y,num_classes = total_words)
 x_train,x_test ,y_train,y_test = train_test_split(x,y,test_size=0.2)
 
 from tensorflow.keras.callbacks import EarlyStopping
-early_stopping = EarlyStopping(mointor = 'val_loss',patience = 3, restore_best_weights=True)
+early_stopping = EarlyStopping(monitor = 'val_loss',patience = 3, restore_best_weights=True)
 
 # define model
 
